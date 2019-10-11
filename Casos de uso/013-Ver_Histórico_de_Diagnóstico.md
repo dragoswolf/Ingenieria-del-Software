@@ -1,6 +1,10 @@
-**ID**: 013	**Descripción**: Listar el historial de diagnósticos de un paciente.
+**ID**: 013	
 
-**Actores principales**: Secretario	**Actores Secundarios**: Paciente
+**Descripción**: Listar el historial de diagnósticos de un paciente.
+
+**Actores principales**: Secretario	
+
+**Actores Secundarios**: Paciente
 
 **Precondiciones**:
 

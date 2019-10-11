@@ -1,6 +1,10 @@
-**ID**: 012 	**Descripción**: Nos permite crear un archivo donde guardar los datos del diagnóstico.
+**ID**: 012 	
 
-**Actores Principales**: Secretario	**Actores Secundarios**: Paciente
+**Descripción**: Nos permite crear un archivo donde guardar los datos del diagnóstico.
+
+**Actores Principales**: Secretario	
+
+**Actores Secundarios**: Paciente
 
 **Precondiciones**:
 
