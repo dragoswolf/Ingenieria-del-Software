@@ -14,8 +14,8 @@ Como usuario quiero poder mostrar un solo paciente
 
 ---
 
-* Quiero poder mostrar un único alumno.
+* Quiero poder mostrar un único paciente.
 
-* Quiero poder mostrar todos los datos del alumno mostrado.
+* Quiero poder mostrar todos los datos del paciente mostrado.
 
 ---
