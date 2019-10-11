@@ -1,6 +1,10 @@
-**ID**: 010 	**Descripción**: Se listan todas las citas pendientes hasta el momento.
+**ID**: 010 	
 
-**Actores principales**: Secretario	**Actores secundarios**: Paciente
+**Descripción**: Se listan todas las citas pendientes hasta el momento.
+
+**Actores principales**: Secretario	
+
+**Actores secundarios**: Paciente
 
 **Precondiciones**:
 

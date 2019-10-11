@@ -1,6 +1,10 @@
-**ID**: 011 	**Descripción**: Opción para eliminar una cita ya existente en la base de datos.
+**ID**: 011 	
 
-**Actores Principales**: Secretario	**Actores Secundarios**: Paciente
+**Descripción**: Opción para eliminar una cita ya existente en la base de datos.
+
+**Actores Principales**: Secretario	
+
+**Actores Secundarios**: Paciente
 
 **Precondiciones**:
 
