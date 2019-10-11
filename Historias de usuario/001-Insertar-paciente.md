@@ -19,5 +19,8 @@ Quiero poder añadir un nuevo paciente al sistema.
   * Nombre
   * Apellidos
   * Fecha de nacimiento
+  * Teléfono
+  * Seguridad social
+  * Tipo de cliente (público o privado)
 
 ---
