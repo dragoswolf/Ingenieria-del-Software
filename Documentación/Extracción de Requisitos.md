@@ -1,6 +1,6 @@
 ### Extracción de requisitos
 
-** Los datos marcados con _*_ serán obligatorios para registrar un paciente **
+* Los datos marcados con _*_ serán obligatorios para registrar un paciente *
 
 Datos del paciente:
 
