@@ -16,21 +16,22 @@ Datos del paciente:
 
 Datos de las citas:
 
- - Fecha de la cita.
- - Paciente.
+ - Fecha de la cita.*
+ - Paciente. *
  - Motivo de petición de la cita.
 
 Datos del tratamiento:
 
+  - Paciente. *
   - Diagnóstico del paciente.
-  - Duración del tratamiento (fecha de inicio y fin ).
+  - Duración del tratamiento (fecha de inicio y fin ).*
   - Medicación asignada al tratamiento.
 
 
  Datos del historial médico:
 
- - Nombre del paciente.
- - Historial de citas.
+ - Nombre del paciente.*
+ - Historial de citas.*
  - Historial de tratamientos.
  - Diagnósticos del paciente.
 
