@@ -1,6 +1,6 @@
 ## Mostrar lista de pacientes
 
-**ID:** 07
+**ID:** 06
 
 **Actores principales:** Secretario
 
