@@ -44,31 +44,9 @@ Como secretario quiero poder modificar los datos de un paciente ya registrado en
 
 ---
 
-## Ocultar Paciente
-
-**ID:** 03
-
-**Nombre:** Ocultar paciente
-
-**Prioridad:** 3
-
-**Iteración:** 2
-
-**Responsable:** Fernando Ramírez Baquerizo
-
-**Descripción**
-
-Como secretario quiero poder ocultar (dar de baja sin borrar) a un paciente ya registrado en el sistema.
-
-**Validación**
-
-* El paciente debe permanecer oculto a nivel de usuario pero seguir permaneciendo la base de datos.
-
----
-
 ## Mostrar Paciente
 
-**ID:** 04
+**ID:** 03
 
 **Nombre:** Mostrar paciente
 
@@ -90,7 +68,7 @@ Como secretario quiero poder mostrar la información relativa a un paciente.
 
 ## Buscar Paciente
 
-**ID:** 05
+**ID:** 04
 
 **Nombre:** Búscar usuario por DNI
 
@@ -115,7 +93,7 @@ Como secretario quiero localizar la información de un usuario para poder consul
 
 ## Eliminar Usuario
 
-**ID:** 06
+**ID:** 05
 
 **Nombre:** Eliminar usuario del sistema
 
@@ -140,7 +118,7 @@ Como secretario quiero poder eliminar un paciente del sistema cuando este abando
 
 ## Mostrar lista de pacientes
 
-**ID:** 07
+**ID:** 06
 
 **Nombre:** Listar lista de pacientes
 
@@ -163,7 +141,7 @@ Como secretario quiero poder listar los pacientes que esten registrados en la cl
 
 ## Agregar cita
 
-**ID:** 08
+**ID:** 07
 
 **Nombre:** Agregar una cita al paciente
 
@@ -189,7 +167,7 @@ Como secretario quiero poder agregar una cita a un paciente en concreto
 
 ## Modificar la cita
 
-**ID:** 09
+**ID:** 08
 
 **Nombre:** Modificar la cita existente de un paciente
 
@@ -213,7 +191,7 @@ Como secreatario quiero poder modificar la cita asignada de un paciente
 
 ## Listar cita
 
-**ID**: 010
+**ID**: 009
 
 **Nombre**: Listar Cita 
 
@@ -236,7 +214,7 @@ Quiero poder ver las citas existentes en el sistema
 
 ## Eliminar Cita
 
-**ID**: 011
+**ID**: 010
 
 **Nombre**: Eliminar Cita
 
@@ -259,9 +237,9 @@ Como secretario, quiero poder seleccionar y eliminar una cita.
 
 ## Creación de diagnóstico
 
-**ID**: 012
+**ID**: 011
 
-**Nombre**: Creación de diagnóstico
+**Nombre**: Creación de tratamiento
 
 **Prioridad**: 2
 
@@ -271,20 +249,20 @@ Como secretario, quiero poder seleccionar y eliminar una cita.
 
 **Descripción**
 
-Como secretario, quiero poder crearle un diagnóstico asignado a un paciente concreto.
+Como secretario, quiero poder crearle un tratamiento asignado a un paciente concreto.
 
 **Validación**
 
-* Se podrá crear un diagnóstico a cualquier paciente.
-* Quiero poder entrar en el perfíl de un paciente y asignarle un diagnóstico con las indicaciones del doctor.
+* Se podrá crear un tratamiento a cualquier paciente.
+* Quiero poder entrar en el perfíl de un paciente y asignarle un tratamiento con las indicaciones del doctor.
 
 ---
 
-## Ver histórico de diagnóstico
+## Ver historial médico
 
-**ID**: 013
+**ID**: 012
 
-**Nombre**: Ver histórico de diagnóstico 
+**Nombre**: Ver historial médico
 
 **Prioridad**: 3
 
@@ -294,8 +272,8 @@ Como secretario, quiero poder crearle un diagnóstico asignado a un paciente con
 
 **Descripción**:
 
-Como secretario, quiero poder ver todos los diagnósticos que se le han asignado a un paciente en concreto.
+Como secretario, quiero poder ver todos los tratamientos que se le han asignado a un paciente en concreto.
 
 **Validación**:
 
-* Quiero poder acceder al perfíl de un paciente e imprimir por pantalla todos los diagnósticos que se le han asignado hasta la fecha actual.
+* Quiero poder acceder al perfíl de un paciente e imprimir por pantalla todos los tratamientos que se le han asignado hasta la fecha actual.
