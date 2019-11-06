@@ -1,6 +1,6 @@
 ## Búscar Usuario
 
-**ID:** 05
+**ID:** 04
 
 
 **Breve descripción:** Permite buscar un paciente.
