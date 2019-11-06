@@ -1,4 +1,4 @@
-**ID**: 013	
+**ID**: 012
 
 **Descripción**: Listar el historial de diagnósticos de un paciente.
 
