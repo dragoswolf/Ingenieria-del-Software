@@ -1,6 +1,6 @@
 ## Añadir cita
 
-**ID:** 08
+**ID:** 07
 
 
 **Actores principales:** Secretario
