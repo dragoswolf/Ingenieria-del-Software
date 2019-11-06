@@ -1,4 +1,4 @@
-**ID**: 012 	
+**ID**: 011	
 
 **Descripción**: Nos permite crear un archivo donde guardar los datos del diagnóstico.
 
