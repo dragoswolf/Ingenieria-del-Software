@@ -1,6 +1,6 @@
 ## Mostrar paciente
 
-**ID:** 004
+**ID:** 003
 
 **Breve descripción:** Permite visualizar un paciente ya existente en el sistema.
 
