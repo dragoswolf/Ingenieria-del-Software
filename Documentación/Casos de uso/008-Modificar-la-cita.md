@@ -1,6 +1,6 @@
 ## Modificar la cita
 
-**ID:** 09
+**ID:** 08
 
 
 **Breve descripción:** Permite modificar la cita de un paciente.
