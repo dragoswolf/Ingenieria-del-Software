@@ -1,6 +1,6 @@
 ## Eliminar Paciente
 
-**ID:** 06
+**ID:** 05
 
 
 **Breve descripción:** Eliminar un paciente determinado
