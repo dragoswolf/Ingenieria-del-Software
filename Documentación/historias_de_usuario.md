@@ -95,7 +95,7 @@ Como secretario quiero localizar la información de un usuario para poder consul
 
 **ID:** 05
 
-**Nombre:** Eliminar usuario del sistema
+**Nombre:** Eliminar paciente del sistema
 
 **Prioridad:** 3
 
