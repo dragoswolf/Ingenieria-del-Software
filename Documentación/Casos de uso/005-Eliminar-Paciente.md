@@ -6,7 +6,7 @@
 **Breve descripción:** Eliminar un paciente determinado
 
 
-**Actores principales:** Secretario
+**Actores principales:** Secretario (usuario)
 
 
 **Actores secundarions:** Paciente

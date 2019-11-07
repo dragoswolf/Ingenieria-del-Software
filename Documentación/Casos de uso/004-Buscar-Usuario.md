@@ -1,4 +1,4 @@
-## Búscar Usuario
+## Buscar Paciente
 
 **ID:** 04
 
@@ -6,7 +6,7 @@
 **Breve descripción:** Permite buscar un paciente.
 
 
-**Actores principales:** Secretario
+**Actores principales:** Secretario (usuario)
 
 
 **Actores secundarios:** Pacientes
@@ -14,7 +14,7 @@
 
 **Precondiciones:**
 
-1. El usuario debe de existir
+1. El paciente debe de existir
 
 
 **Flujo Principal:**
@@ -34,5 +34,5 @@
 
  **Flujo alternativo:**
 
-* Si en alguna búsqueda no se encuentra el paciente indicado, mostrar un mensaje de error y dar la opciín de realizar una nueva búsqueda o salir.
+* Si en alguna búsqueda no se encuentra el paciente indicado, mostrar un mensaje de error y dar la opción de realizar una nueva búsqueda o salir.
 
