@@ -18,7 +18,9 @@ Como secretario quiero poder insertar un nuevo paciente al sistema.
 
 **Validación**
 
-* El paciente debe figurar en la base de datos
+* El paciente debe figurar en la base de datos.
+
+---
 
 ## Modificar Paciente
 
@@ -40,29 +42,11 @@ Como secretario quiero poder modificar los datos de un paciente ya registrado en
 
 * Los datos del paciente han de estar actualizados.
 
-## Ocultar Paciente
-
-**ID:** 03
-
-**Nombre:** Ocultar paciente
-
-**Prioridad:** 3
-
-**Iteración:** 2
-
-**Responsable:** Fernando Ramírez Baquerizo
-
-**Descripción**
-
-Como secretario quiero poder ocultar (dar de baja sin borrar) a un paciente ya registrado en el sistema.
-
-**Validación**
-
-* El paciente debe permanecer oculto a nivel de usuario pero seguir permaneciendo la base de datos.
+---
 
 ## Mostrar Paciente
 
-**ID:** 04
+**ID:** 03
 
 **Nombre:** Mostrar paciente
 
@@ -80,9 +64,11 @@ Como secretario quiero poder mostrar la información relativa a un paciente.
 
 * Los datos del paciente han de verse reflejados en la salida de datos.
 
-## Búscar Usuario
+---
 
-**ID:** 05
+## Buscar Paciente
+
+**ID:** 04
 
 **Nombre:** Búscar usuario por DNI
 
@@ -99,15 +85,15 @@ Como secretario quiero localizar la información de un usuario para poder consul
 **Validación**
 
 * Se debe de poder localizar a cualquier paciente.
-* Los resultados unicamente pueden mostrar un resultado.
+* Los resultados únicamente pueden mostrar un resultado.
 * Se deberán de mostrar los resultados en forma de lista con los datos identificativos del paciente.
 * Cuando un usuario es localizado se mostrará la ficha de paciente con las respectivas citas asignadas.
 
+---
 
+## Eliminar Paciente
 
-## Eliminar Usuario
-
-**ID:** 06
+**ID:** 05
 
 **Nombre:** Eliminar usuario del sistema
 
@@ -128,9 +114,11 @@ Como secretario quiero poder eliminar un paciente del sistema cuando este abando
 * Se cancelaran todas las citas próximas asociadas al paciente.
 * Se deberá de mostrar una ventana de confirmación previa a la eliminacion del paciente.
 
+---
+
 ## Mostrar lista de pacientes
 
-**ID:** 07
+**ID:** 06
 
 **Nombre:** Listar lista de pacientes
 
@@ -149,10 +137,11 @@ Como secretario quiero poder listar los pacientes que esten registrados en la cl
 * Se listarán todos los pacientes que existen en la clínica.
 * La lista estará ordenada por los pacientes que tienen citas próximas.
 
+---
 
 ## Agregar cita
 
-**ID:** 08
+**ID:** 07
 
 **Nombre:** Agregar una cita al paciente
 
@@ -164,7 +153,7 @@ Como secretario quiero poder listar los pacientes que esten registrados en la cl
 
 **Descripción**
 
-Como secreatrio quiero poder agregar una cita a un paciente en concreto
+Como secretario quiero poder agregar una cita a un paciente en concreto
 
 **Validación**
 
@@ -174,9 +163,11 @@ Como secreatrio quiero poder agregar una cita a un paciente en concreto
 * Será necesario rellenar los campos de fecha, descripción de la cita.
 * En el caso de que el usuario tenga una cita en la misma semana de la fecha establecida se mostrará una alerta
 
+---
+
 ## Modificar la cita
 
-**ID:** 09
+**ID:** 08
 
 **Nombre:** Modificar la cita existente de un paciente
 
@@ -195,3 +186,94 @@ Como secreatario quiero poder modificar la cita asignada de un paciente
 * Se podrá modificar cualquier cita del paciente próxima al día actual.
 * No será posible cambiar el campo de fecha a una anterior del dia posterior al actual.
 * Se debera de comprobar si al cambiar la fecha de la cita no existe una el mismo día y a la misma hora.
+
+---
+
+## Listar cita
+
+**ID**: 009
+
+**Nombre**: Listar Cita 
+
+**Prioridad**: 1
+
+**Iteración**: 2
+
+**Responsable**: Dragos George Stan
+
+**Descripción**
+
+Quiero poder ver las citas existentes en el sistema
+
+**Validación**
+
+* Se imprimirá por pantalla las citas existentes hasta el momento.
+* Las citas estarán ordenadas por fechas, siendo la primera cita mostrada la más próxima en producirse.
+
+---
+
+## Eliminar Cita
+
+**ID**: 010
+
+**Nombre**: Eliminar Cita
+
+**Prioridad**: 1
+
+**Iteración**: 1
+
+**Responsable**: Dragos George Stan
+
+**Descripción**
+
+Como secretario, quiero poder seleccionar y eliminar una cita.
+
+**Validación**
+
+* Quiero poder acceder a la ficha de un paciente, ver sus citas asignadas y poder cancelarlas.
+* Se mostrará un mensaje de confirmación por pantalla, el cual habrá que confirmar si queremos proceder con el borrado de la cita.
+
+---
+
+## Creación de diagnóstico
+
+**ID**: 011
+
+**Nombre**: Creación de tratamiento
+
+**Prioridad**: 2
+
+**Iteración**: 2
+
+**Responsable**: Héctor Romero López
+
+**Descripción**
+
+Como secretario, quiero poder crearle un tratamiento asignado a un paciente concreto.
+
+**Validación**
+
+* Se podrá crear un tratamiento a cualquier paciente.
+* Quiero poder entrar en el perfíl de un paciente y asignarle un tratamiento con las indicaciones del doctor.
+
+---
+
+## Ver historial médico
+
+**ID**: 012
+
+**Nombre**: Ver historial médico
+
+**Prioridad**: 3
+
+**Iteración**: 3
+
+**Responsable**: Dragos George Stan
+
+**Descripción**:
+
+Como secretario, quiero poder ver todos los tratamientos que se le han asignado a un paciente en concreto.
+
+**Validación**:
+
+* Quiero poder acceder al perfíl de un paciente e imprimir por pantalla todos los tratamientos que se le han asignado hasta la fecha actual.
