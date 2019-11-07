@@ -11,7 +11,6 @@
 
 1. El paciente debe estar previamente registrado en el sistema.
 2. Los datos identificadores del paciente que se quiere visualizar han de ser introducidos con éxito.
-3. El paciente debe ser un paciente visualizable (no oculto).
 
 **Flujo Principal:**
 
@@ -25,4 +24,4 @@
 
 **Flujo alternativo:**
 
-* Si el paciente no existe en el sistema o está oculto se mostrará un error y se vuelve al menú.
+* Si el paciente no existe en el sistema se mostrará un error y se vuelve al menú.
