@@ -1,6 +1,6 @@
 # Diagrama de clases
 
-![][Diagrama de Clases.jpg]
+![](Diagrama de Clases.jpg)
 
 ## Definición de clases
 
