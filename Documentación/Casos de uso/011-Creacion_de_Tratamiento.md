@@ -1,6 +1,6 @@
 **ID**: 011	
 
-**Descripción**: Nos permite crear un archivo donde guardar los datos del tratamiento.
+**Descripción**: Nos permite crear un tratamiento para un paciente.
 
 **Actores Principales**: Secretario	
 
