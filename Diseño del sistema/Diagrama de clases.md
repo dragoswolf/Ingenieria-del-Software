@@ -1,6 +1,6 @@
 # Diagrama de clases
 
-![](Diagrama de Clases.jpg)
+![](https://raw.githubusercontent.com/dragoswolf/Ingenieria-del-Software/master/Dise%C3%B1o%20del%20sistema/Diagrama%20de%20Clases.jpg)
 
 ## Definición de clases
 
