@@ -1,6 +1,6 @@
 #include "tratamiento.hpp"
 
-Tratamiento::Tratamiento(string fechaIncio, string fechaFin, string medicacion) {
+Tratamiento::Tratamiento(std::string fechaIncio, std::string fechaFin, std::string medicacion) {
     setFechaInicio(fechaIncio);
     setFechaFin(fechaFin);
     setMedicacion(medicacion);

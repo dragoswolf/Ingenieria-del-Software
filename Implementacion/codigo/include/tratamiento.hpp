@@ -9,7 +9,7 @@ private:
     std::string fechaFin_;
     std::string medicacion_;
 public:
-    Tratamiento();
+    Tratamiento(std::string fechaIncio, std::string fechaFin, std::string medicacion);
     inline std::string getFechaInicio() const {return fechaInicio_;};
     inline std::string getFechaFin() const {return fechaFin_;};
     inline std::string getMedicacion() const {return medicacion_;};

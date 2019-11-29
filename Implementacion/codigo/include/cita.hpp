@@ -4,10 +4,14 @@
 
 class Cita{
 private:
-  std::string fecha_;
-  std::string motivo_;
+    std::string fecha;
+    std::string motivo
 public:
-  Cita();
+    Cita(std::string fecha, std::string motivo);
+    inline std::string getFecha() const {return fecha;};
+    inline std::string getMotivo() const {return motivo;};
+    bool setFecha(std::string fecha);
+    bool setMotivo(std::string motivo);
 };
 
 #endif
