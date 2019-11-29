@@ -49,8 +49,7 @@ Datos del tratamiento:
 9. Listar cita
 10. Eliminar cita
 11. Crear tratamientos.
-12. Modificar tratamientos.
-13. Ver historial médico.
+12. Ver historial médico.
 
 #### Requisitos no funcionales
 
