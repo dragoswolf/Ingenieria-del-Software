@@ -5,7 +5,7 @@
 class Cita{
 private:
     std::string fecha;
-    std::string motivo
+    std::string motivo;
 public:
     Cita(std::string fecha, std::string motivo);
     inline std::string getFecha() const {return fecha;};

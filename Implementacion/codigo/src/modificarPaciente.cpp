@@ -1,10 +1,10 @@
-#include "Paciente.hpp"
+#include "Database.hpp"
 #include <iostream>
 
-bool Paciente::modificarPaciente() {
+Paciente Database::updatePaciente(Paciente currentPaciente) {
 
-    // Guardamos en oldPaciente el paciente antes de ser modificado
-    Paciente *oldPaciente = *this;
+    // Guardamos en currentPaciente el paciente antes de ser modificado
+    Paciente oldPaciente = currentPaciente;
 
     // Formulario de modificación del objeto Paciente
     std::cout << "Que parametro del paciente desea modificar?" << std::end << std::endl;
@@ -32,37 +32,37 @@ bool Paciente::modificarPaciente() {
         case 1:
             std::cout << "Inserte el nuevo nombre: ";
             std::cin >> newNombre;
-            this->setNombre(newNombre);
+            currentPaciente.setNombre(newNombre);
             break;
         case 2:
             std::cout << "Inserte los nuevos apellidos: ";
             std::cin >> newApellidos;
-            this->setApellidos(newApellidos);
+            currentPaciente.setApellidos(newApellidos);
             break;
         case 3:
             std::cout << "Inserte la nueva fecha de nacimiento (DD/MM/AAAA): ";
             std::cin >> newFechaNacimiento;
-            this->setFechaNaciemiento(newFechaNacimiento);
+            currentPaciente.setFechaDeNaciemiento(newFechaNacimiento);
             break;
         case 4:
             std::cout << "Inserte el nuevo email: ";
             std::cin >> newEmail;
-            this->setEmail(newEmail);
+            currentPaciente.setEmail(newEmail);
             break;
         case 5:
             std::cout << "Inserte el nuevo tipo: ";
             std::cin >> newTipo;
-            this->setTipo(newTipo);
+            currentPaciente.setTipo(newTipo);
             break;
         case 6:
             std::cout << "Inserte el nuevo NUSHA: ";
             std::cin >> newNUSHA;
-            this->setNUSHA(newNUSHA);
+            currentPaciente.setNUSHA(newNUSHA);
             break;
         case 7:
             std::cout << "Inserte el nuevo DNI: ";
             std::cin >> newDNI;
-            this->setDNI(newDNI);
+            currentPaciente.setDni(newDNI);
             break;
         case 8:
             std::cout << "Inserte el nuevo estado (1/0): ";
@@ -71,7 +71,7 @@ bool Paciente::modificarPaciente() {
                 newEstado = true;
             else
                 newEstado = false;
-            this->setEstado(newEstado);
+            currentPaciente.setEstado(newEstado);
             break;
         default:
             std::cout << "La opcion seleccionada no existe" << std::endl;
@@ -85,37 +85,37 @@ bool Paciente::modificarPaciente() {
             case 1:
                 std::cout << "Inserte el nuevo nombre: ";
                 std::cin >> newNombre;
-                this->setNombre(newNombre);
+                currentPaciente.setNombre(newNombre);
                 break;
             case 2:
                 std::cout << "Inserte los nuevos apellidos: ";
                 std::cin >> newApellidos;
-                this->setApellidos(newApellidos);
+                currentPaciente.setApellidos(newApellidos);
                 break;
             case 3:
                 std::cout << "Inserte la nueva fecha de nacimiento (DD/MM/AAAA): ";
                 std::cin >> newFechaNacimiento;
-                this->setFechaNaciemiento(newFechaNacimiento);
+                currentPaciente.setFechaDeNaciemiento(newFechaNacimiento);
                 break;
             case 4:
                 std::cout << "Inserte el nuevo email: ";
                 std::cin >> newEmail;
-                this->setEmail(newEmail);
+                currentPaciente.setEmail(newEmail);
                 break;
             case 5:
                 std::cout << "Inserte el nuevo tipo: ";
                 std::cin >> newTipo;
-                this->setTipo(newTipo);
+                currentPaciente.setTipo(newTipo);
                 break;
             case 6:
                 std::cout << "Inserte el nuevo NUSHA: ";
                 std::cin >> newNUSHA;
-                this->setNUSHA(newNUSHA);
+                currentPaciente.setNUSHA(newNUSHA);
                 break;
             case 7:
                 std::cout << "Inserte el nuevo DNI: ";
                 std::cin >> newDNI;
-                this->setDNI(newDNI);
+                currentPaciente.setDni(newDNI);
                 break;
             case 8:
                 std::cout << "Inserte el nuevo estado (1/0): ";
@@ -124,7 +124,7 @@ bool Paciente::modificarPaciente() {
                     newEstado = true;
                 else
                     newEstado = false;
-                this->setEstado(newEstado);
+                currentPaciente.setEstado(newEstado);
                 break;
             default:
                 std::cout << "La opcion seleccionada no existe" << std::endl;
@@ -132,15 +132,30 @@ bool Paciente::modificarPaciente() {
         }
     }
 
-    if (this->getPaciente != oldPaciente)
+    return currentPaciente;
+
+    // Comprobacíon de que el objeto se ha modificado
+    /*
+    if (
+        (currentPaciente.getNombre() != oldPaciente.getNombre()) ||
+        (currentPaciente.getApellidos() != oldPaciente.Apellidos()) || 
+        (currentPaciente.getFechaDeNacimiento() != oldPaciente.getFechaDeNacimiento()) ||
+        (currentPaciente.getEmail() != oldPaciente.getEmail()) || 
+        (currentPaciente.getTipo() != oldPaciente.getTipo()) ||
+        (currentPaciente.getNusha() != oldPaciente.getNusha()) || 
+        (currentPaciente.getDni() != oldPaciente.getDni()) ||
+        (currentPaciente.getEstado() != oldPaciente.getEstado())
+        )
     {
         std::cout << "El paciente ha sido modificado con exito" << std::endl;
-        return true;
+        return 1;
     }
     else
     {
         std::cout << "Ha ocurrido un error al modificar el paciente o los datos introducidos son los mismos" << std::endl;
-        return false;
+        return 0;
     }
+    */
 
 }
+
