@@ -35,6 +35,29 @@ bool Cita::setFecha(std::string fecha) {
     return true;
 }
 
+/*
+bool Cita::setFecha(std::string fecha) {
+    
+    time_t now = time(NULL);
+
+    struct tm fechaCita;
+    fechaCita = *localtime(&now);
+    fechaCita.tm_hour = 0; fechaCita.tm_min = 0; fechaCita.tm_sec = 0;
+    fechaCita.tm_mday = stoi(fecha.substr(0,2));
+    fechaCita.tm_mon = stoi(fecha.substr(3,2));
+    fechaCita.tm_year = stoi(fecha.substr(6,4));
+
+    double diferenciaTiempo = difftime(now, mktime(&fechaCita));
+
+    if (diferenciaTiempo < 0)
+        return false;
+
+    fecha_ = fecha;
+    return true;
+
+}
+*/
+
 bool Cita::setMotivo(std::string motivo) {
     motivo_ = motivo;
     return true;
