@@ -62,3 +62,8 @@ bool Cita::setMotivo(std::string motivo) {
     motivo_ = motivo;
     return true;
 }
+
+bool Cita::setDni(std::string dni) {
+    dni_ = dni;
+    return true;
+}

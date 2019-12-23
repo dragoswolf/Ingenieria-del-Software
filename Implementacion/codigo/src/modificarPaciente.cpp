@@ -31,6 +31,12 @@ Paciente Interfaz::updatePaciente(Paciente currentPaciente) {
         currentPaciente.setEmail(nuevoValor);
     }
 
+    std::cout << "Telefono: " << std::endl;
+    std::getline(std::cin,nuevoValor);
+    if (nuevoValor != "\n") {
+        currentPaciente.setTelefono(nuevoValor);
+    }
+
     std::cout << "Tipo (*FORMATO*): " << std::endl;
     std::getline(std::cin,nuevoValor);
     if (nuevoValor != "\n") {

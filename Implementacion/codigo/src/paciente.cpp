@@ -8,4 +8,5 @@ Paciente::Paciente(const std::string & dni, const std::string & nusha, const std
     this -> setFechaDeNacimiento(fechaDeNacimiento);
     this -> setEmail(email);
     this -> setTelefono(telefono);
+    this -> setNusha(nusha);
   }
