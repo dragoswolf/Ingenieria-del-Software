@@ -8,20 +8,21 @@ Tratamiento::Tratamiento(std::string fechaIncio, std::string fechaFin, std::stri
 
 bool Tratamiento::setFechaInicio(std::string fechaInicio) {
     
-    // Guarda en "hoy" la fecha actual en formato AAAA-MM-DD
     time_t now = time(0);
     struct tm tstruct;
-    char hoy[80];
+    char buffer[80];
     tstruct = *localtime(&now);
-    strftime(hoy, sizeof(hoy), "%Y-%m-%d.%X", &tstruct);
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d.%X", &tstruct);
+    
+    std::string hoy(buffer);
+    
+    std::string hoyAno = hoy.substr(0,4);
+    std::string hoyMes = hoy.substr(5,2);
+    std::string hoyDia = hoy.substr(8,2);
 
-    std::string hoyAno = hoy.substr(0,3);
-    std::string hoyMes = hoy.substr(5,6);
-    std::string hoyDia = hoy.substr(8,9);
-
-    std::string ano = fechaInicio.substr(6,9);
-    std::string mes = fechaInicio.substr(3,4);
-    std::string dia = fechaInicio.substr(0,1);
+    std::string ano = fechaInicio.substr(6,4);
+    std::string mes = fechaInicio.substr(3,2);
+    std::string dia = fechaInicio.substr(0,2);
 
     if (stoi(ano) < stoi(hoyAno)) {
         if (stoi(mes) < stoi(hoyMes)) {
@@ -37,19 +38,19 @@ bool Tratamiento::setFechaInicio(std::string fechaInicio) {
 
 bool Tratamiento::setFechaFin(std::string fechaFin) {
     
-    fechaInicio = getFechaInicio();
+    std::string fechaInicio = getFechaInicio();
 
-    std::string anoInicio = fechaInicio.substr(6,9);
-    std::string mesInicio = fechaInicio.substr(3,4);
-    std::string diaInicio = fechaInicio.substr(0,1);
+    std::string anoInicio = fechaInicio.substr(6,4);
+    std::string mesInicio = fechaInicio.substr(3,2);
+    std::string diaInicio = fechaInicio.substr(0,2);
 
-    std::string ano = fechaFin.substr(6,9);
-    std::string mes = fechaFin.substr(3,4);
-    std::string dia = fechaFin.substr(0,1);
+    std::string ano = fechaFin.substr(6,4);
+    std::string mes = fechaFin.substr(3,2);
+    std::string dia = fechaFin.substr(0,2);
 
     if (stoi(ano) < stoi(anoInicio)) {
         if (stoi(mes) < stoi(mesInicio)) {
-            if (stoi(ano) < stoi(diaInicio)){
+            if (stoi(dia) < stoi(diaInicio)){
                 return false;
             }
         }
