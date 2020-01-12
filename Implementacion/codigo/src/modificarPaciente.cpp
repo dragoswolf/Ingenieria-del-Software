@@ -1,7 +1,6 @@
 #include "interfaz.hpp"
-#include <iostream>
 
-Paciente Interfaz::updatePaciente(Paciente currentPaciente) {
+Paciente interfaz::updatePaciente(Paciente currentPaciente) {
 
     std::cout << "Inserte el nuevo (si no desea modificarlo, solamente pulse intro)" << std::endl << std::endl;
 
