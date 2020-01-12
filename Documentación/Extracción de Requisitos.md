@@ -40,19 +40,16 @@ Datos del tratamiento:
 
 1. Insertar paciente
 2. Modificar paciente
-4. Mostrar paciente
-5. Buscar Paciente
-6. Eliminar paciente.
-7. Mostrar lista de pacientes
-8. Añadir cita
-9. Modificar cita
-10. Listar cita
-11. Eliminar cita
-12. Crear tratamientos.
-13. Modificar tratamientos.
-14. Eliminar tratamiento.
-15. Mostrar tratamiento.
-16. Ver historial médico.
+3. Mostrar paciente
+4. Buscar Paciente
+5. Eliminar paciente.
+6. Mostrar lista de pacientes
+7. Añadir cita
+8. Modificar cita
+9. Listar cita
+10. Eliminar cita
+11. Crear tratamientos.
+12. Ver historial médico.
 
 #### Requisitos no funcionales
 
