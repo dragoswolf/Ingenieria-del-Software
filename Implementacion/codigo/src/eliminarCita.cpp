@@ -1,6 +1,6 @@
 #include "insterfaz.hpp.hpp"
 
-bool CLASE::eliminarCita() {
+bool interfaz::eliminarCita() {
     std::string dni;
     std::cout << "Inserte el DNI del paciente del cual desee eliminar la cita: ";
     fgets(dni, 9, stdin);
