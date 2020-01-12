@@ -1,6 +1,6 @@
-#include <cita.hpp>
+#include <interfaz.hpp>
 
-void Cita::insertarCita() {
+void Interfaz::insertarCita() {
     // Creo un nuevo objeto cita y rellenamos los campos
     cita nuevaCita;
     std::string dni;

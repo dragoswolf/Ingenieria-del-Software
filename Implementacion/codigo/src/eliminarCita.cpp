@@ -1,4 +1,4 @@
-#include "insterfaz.hpp.hpp"
+#include "interfaz.hpp"
 
 bool Interfaz::eliminarCita() {
     std::string dni;
