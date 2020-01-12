@@ -1,4 +1,4 @@
-#include <interfaz.hpp>
+#include "interfaz.hpp"
 
 void Interfaz::insertarCita() {
     // Creo un nuevo objeto cita y rellenamos los campos
