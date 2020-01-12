@@ -57,7 +57,7 @@ void Interfaz::insertarCita() {
     return true;
 }
 
-Paciente interfaz::updatePaciente(Paciente currentPaciente) {
+Paciente Interfaz::updatePaciente(Paciente currentPaciente) {
 
     std::cout << "Inserte el nuevo (si no desea modificarlo, solamente pulse intro)" << std::endl << std::endl;
 
