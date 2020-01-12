@@ -4,7 +4,7 @@
 #include <string>
 #include "paciente.hpp"
 
-class Cita{
+class Interfaz{
 private:
 public:
     bool buscarPaciente();
