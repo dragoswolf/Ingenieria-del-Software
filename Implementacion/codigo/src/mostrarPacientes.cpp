@@ -1,6 +1,6 @@
 #include "interfaz.hpp"
 
-void interfaz::mostraPacientes() {
+void Interfaz::mostraPacientes() {
     std::list<Paciente>::iterator it;
     for(it = pacientesList_.begin(); it != pacientesList_.end(); it++) {
         std::cout << "Nombre: " << it->getNombre() << std::endl;

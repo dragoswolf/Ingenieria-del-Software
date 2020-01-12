@@ -1,6 +1,6 @@
 #include <cita.hpp>
 
-void insertarCita() {
+void Cita::insertarCita() {
     // Creo un nuevo objeto cita y rellenamos los campos
     cita nuevaCita;
     std::string dni;

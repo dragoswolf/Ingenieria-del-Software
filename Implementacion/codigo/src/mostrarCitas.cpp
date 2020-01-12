@@ -1,6 +1,6 @@
 #include "interfaz.hpp"
 
-void interfaz::mostrarCitas() {
+void Interfaz::mostrarCitas() {
     std::list<Cita>::iterator it;
     for(it = citasList_.begin(); it != citasList_.end(); it++) {
         std::cout << it->getFecha() << std::endl;
