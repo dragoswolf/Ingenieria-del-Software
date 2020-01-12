@@ -6,7 +6,7 @@ void Interfaz::insertarCita() {
     std::string dni;
     std::cout << "Inserte el DNI del paciente alque se le va a asignar la cita: ";
     fgets(dni, 9, stdin);
-    //nuevaCita.setDni(dni);
+    nuevaCita.setDni(dni);
     std::string fecha;
     std::cout << "Inserte la fecha de la cita: ";
     fgets(fecha, 10, stdin);
