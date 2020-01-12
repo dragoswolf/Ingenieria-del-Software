@@ -1,4 +1,4 @@
-#include "paciente.h"
+#include "paciente.hpp"
 
 Paciente::Paciente(const std::string & dni, const std::string & nusha, const std::string &nombre, const std::string  & apellidos, const std::string & fechaDeNacimiento, const std::string & email, const std::string & telefono) {
     activo_ = true;
