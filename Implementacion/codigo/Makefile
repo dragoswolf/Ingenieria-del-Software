@@ -14,8 +14,11 @@ cita.o: $(SRC)/cita.cpp $(HEADERS)/cita.hpp
 interfaz.o: $(SRC)/ $(HEADERS)/interfaz.hpp
 	$(CC) $(CFLAGS) -o interfaz.o -c $(SRC)/interfaz.cpp
 
-$(TARGET): cita.o
-	$(CC) $(CFLAGS)  -o $(TARGET) cita.o main.cpp
+database.o: $(SRC)/database.cpp $(HEADERS)/database.hpp
+	$(CC) $(CFLAGS) -o database.o -c $(SRC)/database.cpp
+
+$(TARGET): database.o
+	$(CC) $(CFLAGS)  -o $(TARGET) database.o main.cpp
 
 
 clean:
