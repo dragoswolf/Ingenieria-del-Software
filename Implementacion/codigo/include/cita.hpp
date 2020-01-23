@@ -1,21 +1,23 @@
 #ifndef _CITA_H_
 #define _CITA_H_
 #include <iostream>
-#include "paciente.hpp"
+#include <string>
 
 class Cita{
 private:
+    std::string dni_;
     std::string fecha_;
     std::string motivo_;
-    std::string dni_;
 public:
-    Cita(std::string fecha, std::string motivo, std::string dni_);
+    Cita(const std::string & dni, const std::string & fecha, const std::string & motivo);
+
+    inline std::string getDni() const {return dni_;};
     inline std::string getFecha() const {return fecha_;};
     inline std::string getMotivo() const {return motivo_;};
-    inline std::string getDni() const {return dni_;};
-    bool setFecha(std::string fecha);
-    bool setMotivo(std::string motivo);
-    bool setDni(std::string dni);
+
+    inline void setDni(const std::string & dni) {dni_ = dni;};
+    bool setFecha(const std::string & fecha);
+    inline void setMotivo(const std::string & motivo) {motivo_ = motivo;};
 };
 
 #endif

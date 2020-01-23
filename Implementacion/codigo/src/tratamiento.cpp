@@ -1,12 +1,12 @@
 #include "tratamiento.hpp"
 
-Tratamiento::Tratamiento(std::string fechaIncio, std::string fechaFin, std::string medicacion) {
-    setFechaInicio(fechaIncio);
-    setFechaFin(fechaFin);
-    setMedicacion(medicacion);
+Tratamiento::Tratamiento(const std::string & medicacion, const std::string & fechaIncio, const std::string & fechaFin) {
+    this->setMedicacion(medicacion);
+    this->setFechaInicio(fechaIncio);
+    this->setFechaFin(fechaFin);
 }
 
-bool Tratamiento::setFechaInicio(std::string fechaInicio) {
+bool Tratamiento::setFechaInicio(const std::string & fechaInicio) {
     
     time_t now = time(0);
     struct tm tstruct;
@@ -24,21 +24,18 @@ bool Tratamiento::setFechaInicio(std::string fechaInicio) {
     std::string mes = fechaInicio.substr(3,2);
     std::string dia = fechaInicio.substr(0,2);
 
-    if (stoi(ano) < stoi(hoyAno)) {
-        if (stoi(mes) < stoi(hoyMes)) {
-            if (stoi(ano) < stoi(hoyDia)){
-                return false;
-            }
-        }
+    if (stoi(ano + mes + dia) < stoi(hoyAno + hoyMes + hoyDia)) {
+        fechaInicio_ = "00/00/0000";
+        return false;
     }
 
     fechaInicio_ = fechaInicio;
     return true;
 }
 
-bool Tratamiento::setFechaFin(std::string fechaFin) {
+bool Tratamiento::setFechaFin(const std::string & fechaFin) {
     
-    std::string fechaInicio = getFechaInicio();
+    std::string fechaInicio = this->getFechaInicio();
 
     std::string anoInicio = fechaInicio.substr(6,4);
     std::string mesInicio = fechaInicio.substr(3,2);
@@ -48,19 +45,12 @@ bool Tratamiento::setFechaFin(std::string fechaFin) {
     std::string mes = fechaFin.substr(3,2);
     std::string dia = fechaFin.substr(0,2);
 
-    if (stoi(ano) < stoi(anoInicio)) {
-        if (stoi(mes) < stoi(mesInicio)) {
-            if (stoi(dia) < stoi(diaInicio)){
-                return false;
-            }
-        }
+
+    if (stoi(ano + mes + dia) < stoi(anoInicio + mesInicio + diaInicio)) {
+        fechaFin_ = "00/00/0000";
+        return false;
     }
 
     fechaFin_ = fechaFin;
-    return true;
-}
-
-bool Tratamiento::setMedicacion(std::string medicacion) {
-    medicacion_ = medicacion;
     return true;
 }
