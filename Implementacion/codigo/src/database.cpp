@@ -1,41 +1,54 @@
 #include "database.hpp"
+#include "paciente.hpp"
 
 Database::Database(const std::string & folder){
     DIR* patients_directory = opendir(folder.c_str());
     struct dirent * dp;
     while ((dp = readdir(patients_directory)) != NULL) {
-        std::string finalPath = "pacientes/" + *dp->d_name;
-        patientFiles_.push_back(finalPath);
+        if (*dp->d_name != '.'){
+            std::string filename(dp->d_name);
+            std::string finalPath(folder + "/" + filename);
+            patientFiles_.push_back(finalPath);
+        }
     }
     closedir(patients_directory);
-};
-/*
-std::string Database::getTagValue(const std::string & xmlLine, std::string tag){
-    unsigned int startPosition , closePosition = 0;
-    std::vector<std::string> collection;
-    
-    while(true){
-        // Search opening tag inside line 
-        startPosition = xmlLine.find("<" + tag, closePosition);
-        
-        closePosition = xmlLine.find(">", startPosition);
-        // Move initial cursor to next position from > to start catch tag value
-        startPosition++;
-
-        // Search </ ignoring intermadiate ocurrences to get the final position
-        closePosition = xmlLine.find( "</" + tag, startPosition );
-        
-        std::cout<<startPosition<<"--"<<closePosition<<"--"<<xmlLine.length()<<std::endl;
-        std::cout<<"Final value?:"<<xmlLine.substr( startPosition, closePosition - startPosition )<<std::endl;
-        // If the position isn't at end of line append into a vector of string 
-        collection.push_back( xmlLine.substr( startPosition, closePosition - startPosition ) );
-    }
 }
-*/
+std::vector<std::string> splitCsvLine(const std::string & originalLine){
+    std::vector<std::string> values;
+    size_t current,previous = 0;
+    current = originalLine.find(";");
+    while (current != std::string::npos) {
+        values.push_back(originalLine.substr(previous, current - previous));
+        previous = current + 1;
+        current = originalLine.find(";", previous);
+    }
+    values.push_back(originalLine.substr(previous, current - previous));
+    return values;
+}
+
 void Database::loadDatabase(){
     std::vector<std::string>::iterator it = patientFiles_.begin();
     for(;it != patientFiles_.end();it++){
         //logic to create patients and add to the final value
-        std::cout<<*it;
+        std::ifstream myfile (*it);
+        if (myfile.is_open()){
+            std::string fileLine;
+            while(getline(myfile,fileLine)){
+                std::vector<std::string> values;
+                size_t current,previous = 0;
+                current = fileLine.find(";");
+                while (current != std::string::npos) {
+                    values.push_back(fileLine.substr(previous, current - previous));
+                    previous = current + 1;
+                    current = fileLine.find(";", previous);
+                }
+                for (std::vector<std::string>::iterator it = values.begin(); it != values.end(); it++){
+                    std::cout<<*it<<"\t";
+                }
+                std::cout<<"\n";
+                values.push_back(fileLine.substr(previous, current - previous));
+            }
+            myfile.close();
+        }
     }
 }

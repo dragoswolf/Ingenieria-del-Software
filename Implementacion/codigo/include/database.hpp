@@ -10,17 +10,18 @@
 
 class Database{
     private:
-        std::string fileame_;
+        std::string folder_;
         std::vector<std::string> patientFiles_;
         
     public:
-        Database(const std::string & fileame);    
-        inline std::string getFileame()const {return fileame_;};
+        Database(const std::string & folder);    
+        inline std::string getFolder()const {return folder_;};
         Paciente getPaciente(std::string dni);
         bool insertPaciente(Paciente newPaciente);
         bool deletePaciente(Paciente oldPaciente);
         bool updatePaciente(Paciente newPaciente);
         void loadDatabase();
+        std::vector<std::string> splitCsvLine(const std::string & originalLine);
 };
 
 
