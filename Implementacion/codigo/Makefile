@@ -11,7 +11,19 @@ all: $(TARGET)
 cita.o: $(SRC)/cita.cpp $(HEADERS)/cita.hpp
 	$(CC) $(CFLAGS) -o cita.o -c $(SRC)/cita.cpp
 
-interfaz.o: $(SRC)/ $(HEADERS)/interfaz.hpp
+paciente.o: $(SRC)/paciente.cpp $(HEADERS)/paciente.hpp
+	$(CC) $(CFLAGS) -o paciente.o $(SRC)/paciente.cpp
+
+historial.o: $(SRC)/historial.cpp $(HEADERS)/historial.hpp
+	$(CC) $(CFLAGS) -o historial.o $(SRC)/historial.cpp
+
+registro.o: $(SRC)/registro.cpp $(HEADERS)/registro.hpp
+	$(CC) $(CFLAGS) -o registro.o $(SRC)/registro.cpp
+
+tratamiento.o: $(SRC)/tratamiento.cpp $(HEADERS)/tratamiento.hpp
+	$(CC) $(CFLAGS) -o tratamiento.o $(SRC)/tratamiento.cpp	
+
+interfaz.o: $(SRC)/interfaz.cpp $(HEADERS)/interfaz.hpp
 	$(CC) $(CFLAGS) -o interfaz.o -c $(SRC)/interfaz.cpp
 
 database.o: $(SRC)/database.cpp $(HEADERS)/database.hpp
