@@ -1,10 +1,15 @@
 #include "cita.hpp"
 
-Cita::Cita(const std::string & dni, const std::string & fecha, const std::string & motivo) {
-    this->setDni(dni);
+Cita::Cita(const std::string & fecha, const std::string & motivo) {
     this->setFecha(fecha);
     this->setMotivo(motivo);
 }
+
+Cita::Cita(std::vector<std::string> databaseRegister){
+    this->setFecha(databaseRegister[1]);
+    this->setMotivo(databaseRegister[2]);
+}
+
 
 bool Cita::setFecha(const std::string & fecha) {
     

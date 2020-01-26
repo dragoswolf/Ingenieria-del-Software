@@ -6,6 +6,12 @@ Tratamiento::Tratamiento(const std::string & medicacion, const std::string & fec
     this->setFechaFin(fechaFin);
 }
 
+Tratamiento::Tratamiento(std::vector<std::string> databaseRegister) {
+    this->setMedicacion(databaseRegister[1]);
+    this->setFechaInicio(databaseRegister[2]);
+    this->setFechaFin(databaseRegister[3]);
+}
+
 bool Tratamiento::setFechaInicio(const std::string & fechaInicio) {
     
     time_t now = time(0);
