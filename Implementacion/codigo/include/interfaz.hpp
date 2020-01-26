@@ -8,9 +8,10 @@
 
 class Interfaz{
 private:
+    std::list<Paciente> pacienteList_;
 public:
-    Paciente & createPaciente();
-    Paciente & readPaciente();
+    Paciente createPaciente();
+    void readPaciente();
     Paciente & updatePaciente();
     bool deletePaciente();
     void listarPacientes();
@@ -18,8 +19,8 @@ public:
     Paciente & createCita();
     Paciente & readCita();
     Paciente & updateCita();
-    bool deleteCita();
-    void listarCitas();
+    bool eliminarCita();
+    void mostrarCitas();
 };
 
 #endif

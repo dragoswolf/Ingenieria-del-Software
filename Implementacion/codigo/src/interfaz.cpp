@@ -1,6 +1,6 @@
 #include "interfaz.hpp"
 
-Paciente & Interfaz::createPaciente() {
+Paciente Interfaz::createPaciente() {
     std::string dni;
     std::cout << "DNI: ";
     std::getline(std::cin,dni);
@@ -36,34 +36,20 @@ Paciente & Interfaz::createPaciente() {
     std::getline(std::cin,telefono);
     std::cout << std::endl;
 
-    Paciente *newPaciente = new Paciente(dni, nusha, nombre, apellidos, fechaDeNacimiento, email, telefono);
-    std::list<Paciente> iterator it;
-    it = citasList_.end();
-    citasList_.insert(it, newPaciente);
-    return *newPaciente;
-    // Paciente newPaciente(dni, nusha, nombre, apellidos, fechaDeNacimiento, email, telefono);
-    // return newPaciente;
+    Paciente newPaciente = Paciente(dni, nusha, nombre, apellidos, fechaDeNacimiento, email, telefono);
+    return newPaciente;
+
 }
 
-Paciente & Interfaz::readPaciente() {
-    std::string dni;
-    std::cout << "Inserte el DNI del paciente que desee leer" << std::endl;
-    std::cout << "DNI: ";
-    std::getline(std::cin,dni);
-    std::list<Paciente> iterator it;
-    for(it = pacienteList_.begin(); it != pacienteList_.end(); it++) {
-        if (dni == it->getDni()) {
-            std::cout << "DNI: " << it->getDni() << std::endl;
-            std::cout << "NUSHA: " << it->getNusha() << std::endl;
-            std::cout << "Nombre: " << it->getNombre() << std::endl;
-            std::cout << "Apellidos: " << it->getApellidos() << std::endl;
-            std::cout << "Fecha de naciemiento (dd/mm/aaaa): " << it->getFechaDeNacimiento() << std::endl;
-            std::cout << "Email: " << it->getEmail() << std::endl;
-            std::cout << "Telefono: " << it->getTelefono() << std::endl;
-            return *it;
-        }
-    }
-    std::cout << "El DNI proporcionado no se encuentra en la base de datos" << std::endl;
+void Interfaz::readPaciente(Paciente & paciente) {
+
+    std::cout << "DNI: " << paciente.getDni() << std::endl;
+    std::cout << "NUSHA: " << paciente.getNusha() << std::endl;
+    std::cout << "Nombre: " << paciente.getNombre() << std::endl;
+    std::cout << "Apellidos: " << paciente.getApellidos() << std::endl;
+    std::cout << "Fecha de naciemiento (dd/mm/aaaa): " << paciente.getFechaDeNacimiento() << std::endl;
+    std::cout << "Email: " << paciente.getEmail() << std::endl;
+    std::cout << "Telefono: " << paciente.getTelefono() << std::endl;     
 }
 
 Paciente & Interfaz::updatePaciente() {
@@ -148,11 +134,10 @@ bool Interfaz::deletePaciente() {
     std::cout << "Inserte el DNI del paciente que desee borrar" << std::endl;
     std::cout << "DNI: ";
     std::getline(std::cin,dni);
-    std::list<Paciente> iterator it;
+    std::list<Paciente>::iterator it;
     for(it = pacienteList_.begin(); it != pacienteList_.end(); it++) {
         if (dni == it->getDni()) {
-            it = it.erase();
-            // it = pacienteList_.erase(it);
+            it = pacienteList_.erase(it);
             return true;
         }
     }
@@ -291,7 +276,6 @@ bool Interfaz::eliminarCita() {
 void Interfaz::mostrarCitas() {
     std::list<Cita>::iterator it;
     for(it = citasList_.begin(); it != citasList_.end(); it++) {
-        std::cout << it->getDni() << std::endl;
         std::cout << it->getFecha() << std::endl;
         std::cout << it->getMotivo() << std::endl << std::endl;
     }
