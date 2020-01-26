@@ -7,12 +7,15 @@
 #include <fstream>
 #include <string>
 #include "paciente.hpp"
+#include "cita.hpp"
+#include "tratamiento.hpp"
+#include <list>
 
 class Database{
     private:
         std::string folder_;
         std::vector<std::string> patientFiles_;
-        
+        std::list<Paciente> pacientes_;
     public:
         Database(const std::string & folder);    
         inline std::string getFolder()const {return folder_;};
@@ -22,6 +25,8 @@ class Database{
         bool updatePaciente(Paciente newPaciente);
         void loadDatabase();
         std::vector<std::string> splitCsvLine(const std::string & originalLine);
+        void processLine(std::vector<std::string> originalInformation, Paciente & databasePaciente);
+        std::list<Paciente> getPacientes(){return pacientes_;}
 };
 
 
