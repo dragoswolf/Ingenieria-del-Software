@@ -1,5 +1,7 @@
 #include "interfaz.hpp"
-
+Interfaz::Interfaz(const std::string & folder){
+    db_ = Database(folder);
+}
 Paciente Interfaz::createPaciente() {
     std::string dni;
     std::cout << "DNI: ";
@@ -37,6 +39,7 @@ Paciente Interfaz::createPaciente() {
     std::cout << std::endl;
 
     Paciente newPaciente = Paciente(dni, nusha, nombre, apellidos, fechaDeNacimiento, email, telefono);
+    pacienteList_.push_back(newPaciente);
     return newPaciente;
 
 }
@@ -270,3 +273,9 @@ void Interfaz::mostrarCitas() {
     }
 }
 
+void Interfaz::exportarPacientes(){
+    std::list<Paciente>::iterator it = pacienteList_.begin();
+    for(; it != pacienteList_.end(); it++){
+        db_.exportInformationToFile(*it);
+    }
+}

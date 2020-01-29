@@ -27,6 +27,7 @@ class Database{
         std::vector<std::string> splitCsvLine(const std::string & originalLine);
         void processLine(std::vector<std::string> originalInformation, Paciente & databasePaciente);
         std::list<Paciente> getPacientes(){return pacientes_;}
+        void exportInformationToFile(Paciente & paciente);
 };
 
 

@@ -56,3 +56,29 @@ void Database::loadDatabase(){
         }
     }
 }
+
+void Database::exportInformationToFile(Paciente & paciente){
+    std::ofstream pacienteFile;
+    std::string personalInformation;
+    std::string citas;
+    std::string historial;
+    std::string tratamiento;
+    std::list<Cita> pacienteCitas = paciente.getCitas();
+    std::list<Registro> pacienteHistorial = paciente.getHistorial();
+    personalInformation = "p;" + paciente.getDni() + ";" + paciente.getDni() + ";" + paciente.getApellidos(); + ";" + paciente.getFechaDeNacimiento() + ";"+ paciente.getEmail() + ";"+paciente.getTelefono() + "\n";
+    std::list<Cita>::iterator citaIterator = pacienteCitas.begin();
+    for (; citaIterator != pacienteCitas.end(); citaIterator++){
+        citas = "c;"+citaIterator->getFecha() + ";"+ citaIterator->getMotivo()+"\n";
+    }
+    std::list<Registro>::iterator registroIterator = pacienteHistorial.begin();
+    for (; registroIterator != pacienteHistorial.end(); registroIterator++){
+        historial = "r;"+registroIterator->getMotivo()+"\n";
+    }
+    pacienteFile.open("pacientes/"+paciente.getDni()+".txt");
+    if (pacienteFile.is_open()){
+        pacienteFile<<personalInformation;
+        pacienteFile<<tratamiento;
+        pacienteFile<<historial;
+    }
+    pacienteFile.close();
+}
