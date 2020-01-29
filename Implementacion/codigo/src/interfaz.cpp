@@ -61,7 +61,7 @@ Paciente & Interfaz::updatePaciente() {
     std::cout << "Inserte el DNI del paciente que desee actualizar" << std::endl;
     std::cout << "DNI: ";
     std::getline(std::cin,dni);
-    std::list<Paciente> iterator it;
+    std::list<Paciente>::iterator it;
     for(it = pacienteList_.begin(); it != pacienteList_.end(); it++) {
         if (dni == it->getDni()) {
 
@@ -92,7 +92,7 @@ Paciente & Interfaz::updatePaciente() {
             std::cout << "Fecha de naciemiento (dd/mm/aaaa): " << std::endl;
             std::getline(std::cin,nuevoValor);
             if (nuevoValor != "\n") {
-                it->setFechaNacimiento(nuevoValor);
+                it->setFechaDeNacimiento(nuevoValor);
             }
 
             std::cout << "Email: " << std::endl;
@@ -146,12 +146,11 @@ bool Interfaz::deletePaciente() {
 
 void Interfaz::listarPacientes() {
     std::list<Paciente>::iterator it;
-    for(it = pacientesList_.begin(); it != pacientesList_.end(); it++) {
+    for(it = pacienteList_.begin(); it != pacienteList_.end(); it++) {
         std::cout << "Nombre: " << it->getNombre() << std::endl;
         std::cout << "Apellidos: " << it->getApellidos() << std::endl;
         std::cout << "Fecha de Nacimiento: " << it->getFechaDeNacimiento() << std::endl;
         std::cout << "Email: " << it->getEmail() << std::endl;
-        std::cout << "Tipo: " << it->getTipo() << std::endl;
         std::cout << "Telefono: " << it->getTelefono() << std::endl;
         std::cout << "NUSHA: " << it->getNusha() << std::endl;
         std::cout << "DNI: " << it->getDni() << std::endl;
@@ -159,7 +158,7 @@ void Interfaz::listarPacientes() {
     }
 }
 
-Cita & Interfaz::insertarCita() {
+Cita & Interfaz::createCita() {
     std::string dni;
     std::cout << "DNI: ";
     std::getline(std::cin,dni);
@@ -175,11 +174,8 @@ Cita & Interfaz::insertarCita() {
     std::getline(std::cin,motivo);
     std::cout << std::endl;
 
-    Cita *newCita = new Cita(dni, fecha, motivo);
-    std::list<Cita> iterator it;
-    it = citasList_.end();
-    citasList_.insert(it, newCita);
-    return *newCita;
+    Cita newCita(fecha, motivo);
+    return newCita;
 }
 
 Cita & Interfaz::readCita() {
@@ -193,10 +189,9 @@ Cita & Interfaz::readCita() {
     std::cout << "Fecha: ";
     std::getline(std::cin,fecha);
 
-    std::list<Cita> iterator it;
+    std::list<Cita>::iterator it;
     for(it = citasList_.begin(); it != citasList_.end(); it++) {
-        if (dni == it->getDni() && fecha == it->getFecha()) {
-            std::cout << "DNI: " << it->getDni() << std::endl;
+        if (fecha == it->getFecha()) {
             std::cout << "Fecha (dd/mm/aaaa): " << it->getFecha() << std::endl;
             std::cout << "Motivo: " << it->getMotivo() << std::endl;
             return *it;
@@ -220,25 +215,19 @@ Cita & Interfaz::updateCita() {
     std::cout << "Fecha: ";
     std::getline(std::cin,fecha);
 
-    std::list<Cita> iterator it;
+    std::list<Cita>::iterator it;
     for(it = citasList_.begin(); it != citasList_.end(); it++) {
-        if (dni == it->getDni()) {
-
-            std::cout << "DNI: " << std::endl;
-            std::getline(std::cin,nuevoValor);
-            if (nuevoValor != "\n") {
-                it->setDni(nuevoValor);
-            }
+        if (fecha == it->getFecha()) {
 
             std::cout << "Fecha: " << std::endl;
             std::getline(std::cin,nuevoValor);
             if (nuevoValor != "\n") {
-                it->setDni(nuevoValor);
+                it->setFecha(nuevoValor);
             }
             std::cout << "Motivo: " << std::endl;
             std::getline(std::cin,nuevoValor);
             if (nuevoValor != "\n") {
-                it->setDni(nuevoValor);
+                it->setMotivo(nuevoValor);
             }
 
             return *it;
@@ -260,9 +249,9 @@ bool Interfaz::eliminarCita() {
     std::cout << "Fecha (dd/mm/aaaa): ";
     std::getline(std::cin,fecha);
 
-    std::list<Cita> iterator it;
+    std::list<Cita>::iterator it;
     for(it = citasList_.begin(); it != citasList_.end(); it++) {
-        if (dni == it->getDni() && fecha == it->getFecha())
+        if ( fecha == it->getFecha())
         {
             it = citasList_.erase(it);
             // it = it.erase(it);

@@ -9,16 +9,17 @@
 class Interfaz{
 private:
     std::list<Paciente> pacienteList_;
+    std::list<Cita> citasList_;
 public:
     Paciente createPaciente();
-    void readPaciente();
+    void readPaciente(Paciente & paciente);
     Paciente & updatePaciente();
     bool deletePaciente();
     void listarPacientes();
 
-    Paciente & createCita();
-    Paciente & readCita();
-    Paciente & updateCita();
+    Cita & createCita();
+    Cita & readCita();
+    Cita & updateCita();
     bool eliminarCita();
     void mostrarCitas();
 };
