@@ -65,7 +65,7 @@ void Database::exportInformationToFile(Paciente & paciente){
     std::string tratamiento;
     std::list<Cita> pacienteCitas = paciente.getCitas();
     std::list<Registro> pacienteHistorial = paciente.getHistorial();
-    personalInformation = "p;" + paciente.getDni() + ";" + paciente.getDni() + ";" + paciente.getApellidos(); + ";" + paciente.getFechaDeNacimiento() + ";"+ paciente.getEmail() + ";"+paciente.getTelefono() + "\n";
+    personalInformation = "p;" + paciente.getDni() + ";" + paciente.getNusha() + ";" + paciente.getNombre() + ";" + paciente.getApellidos()+ ";" +paciente.getFechaDeNacimiento() + ";"+ paciente.getEmail() + ";"+paciente.getTelefono() + "\n";
     std::list<Cita>::iterator citaIterator = pacienteCitas.begin();
     for (; citaIterator != pacienteCitas.end(); citaIterator++){
         citas = "c;"+citaIterator->getFecha() + ";"+ citaIterator->getMotivo()+"\n";

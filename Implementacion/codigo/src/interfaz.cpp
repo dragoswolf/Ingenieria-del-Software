@@ -1,6 +1,8 @@
 #include "interfaz.hpp"
 Interfaz::Interfaz(const std::string & folder){
     db_ = Database(folder);
+    db_.loadDatabase();
+    pacienteList_ = db_.getPacientes();
 }
 Paciente Interfaz::createPaciente() {
     std::string dni;
