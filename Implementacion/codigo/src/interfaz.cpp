@@ -47,7 +47,6 @@ Paciente Interfaz::createPaciente() {
 }
 
 void Interfaz::readPaciente(Paciente & paciente) {
-
     std::cout << "DNI: " << paciente.getDni() << std::endl;
     std::cout << "NUSHA: " << paciente.getNusha() << std::endl;
     std::cout << "Nombre: " << paciente.getNombre() << std::endl;
@@ -280,4 +279,32 @@ void Interfaz::exportarPacientes(){
     for(; it != pacienteList_.end(); it++){
         db_.exportInformationToFile(*it);
     }
+}
+
+Tratamiento Interfaz::createTratamiento() {
+    std::string medicacion;
+    std::cout << "Medicación: ";
+    std::getline(std::cin,medicacion);
+    std::cout << std::endl;
+
+    std::string fechaInicio;
+    std::cout << "Fecha de inicio del tratamiento (dd/mm/aaaa): ";
+    std::getline(std::cin,fechaInicio);
+    std::cout << std::endl;
+
+    std::string fechaFin;
+    std::cout << "Fecha de finalización del tratamiento (dd/mm/aaaa): ";
+    std::getline(std::cin,fechaFin);
+    std::cout << std::endl;
+
+    Tratamiento newTratamiento = Tratamiento(medicacion, fechaInicio, fechaFin);
+    tratamientos_.push_back(tratamiento);
+    return tratamiento;
+
+}
+
+void Interfaz::readTratamiento(Tratamiento & tratamiento) {
+    std::cout << "Medicación: " << tratamiento.getMedicacion() << std::endl;
+    std::cout << "Fecha de inicio (dd/mm/aaaa): " << tratamiento.getFechaInicio() << std::endl;
+    std::cout << "Fecha de finalización (dd/mm/aaaa): " << tratamiento.getFechaFin() << std::endl;
 }
