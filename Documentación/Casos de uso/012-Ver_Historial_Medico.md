@@ -1,3 +1,5 @@
+## Ver Historial Médico
+
 **ID**: 012
 
 **Descripción**: Listar el historial médico de un paciente.
