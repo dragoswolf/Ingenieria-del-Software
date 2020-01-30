@@ -1,3 +1,5 @@
+## Eliminar Cita
+
 **ID**: 010
 
 **Descripción**: Opción para eliminar una cita ya existente en la base de datos.
