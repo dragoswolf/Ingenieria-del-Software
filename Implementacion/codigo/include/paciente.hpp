@@ -44,6 +44,8 @@ public:
   inline void addCita(Cita newCita){citas_.push_back(newCita);};
   inline void addTratamiento(Tratamiento newTratamiento){tratamientos_.push_back(newTratamiento);};
   inline void addRegistro(Registro newRegistro){historial_.push_back(newRegistro);};
+  inline void deleteCita(Cita oldCita){citas_.remove(oldCita);};
+  inline void deleteTratamiento(Tratamiento oldTratamiento){tratamientos_.remove(oldTratamiento);};
   std::list<Tratamiento> getTratamientos(){return tratamientos_;};
   std::list<Cita> getCitas(){return citas_;};
   std::list<Registro> getHistorial(){return historial_;}

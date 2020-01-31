@@ -1,20 +1,69 @@
 #include "cita.hpp"
-//#include "interfaz.hpp"
 #include "paciente.hpp"
 #include "tratamiento.hpp"
+#include "database.hpp"
+#include "registro.hpp"
+#include "interfaz.hpp"
 
 int main() {
+    std::string dni;
+    Paciente paciente;
+    int option = 0;
+    Interfaz interfaz("/home/hromero/is-practices/Implementacion/codigo/pacientes");
+    std::cout<<"1. Crear un nuevo paciente"<<std::endl;
+    std::cout<<"2. Mostrar un paciente"<<std::endl;
+    std::cout<<"3. Listar todos los pacientes"<<std::endl;
+    std::cout<<"4. Eliminar un paciente"<<std::endl;
+    std::cout<<"5. Modificar datos de un paciente"<<std::endl;
+    std::cout<<"6. Operar con las citas de un paciente"<<std::endl;
+    std::cout<<":>";
+    std::cin>>option;
+    std::cin.get();
 
-    Paciente nuevoPaciente("dni", "nusha", "nombre", "apellidos", "fechaDeNacimiento", "email", "telefono");
-
-    // Probar con una fecha menor que la de hoy y despues probar con una fecha mayor que la de hoy
-    Cita nuevaCita("dni", "04/12/2020", "motivo");
-    std::cout << nuevaCita.getFecha() << std::endl << std::endl;
-
-    //Podeis probar a hacer perrerias con los tratamientos
-    Tratamiento nuevoTratamiento("medicacion", "12/12/2020", "15/12/2024");
-    std::cout << nuevoTratamiento.getFechaInicio() << std::endl;
-    std::cout << nuevoTratamiento.getFechaFin() << std::endl << std::endl;
-
+    switch (option){
+    case 1:
+        interfaz.createPaciente();
+        break;
+    case 2:
+        std::cout<<"Inserta el Dni del paciente:";
+        std::getline(std::cin, dni);
+        paciente = interfaz.buscarPaciente(dni);
+        interfaz.readPaciente(paciente);
+        break;
+    case 3:
+        interfaz.listarPacientes();
+        break;
+    case 4:
+        std::cout<<"Inserta el dni del paciente que quieres eliminar:";
+        std::getline(std::cin, dni);
+        paciente = interfaz.buscarPaciente(dni);
+        if (interfaz.deletePaciente(paciente) && paciente.getDni() != "NULL"){
+            std::cout << "Paciente eliminado correctamente" << std::endl;
+            interfaz.exportarPacientes();
+            break;
+        }
+        std::cout << "El DNI proporcionado no se encuentra en la base de datos" << std::endl;
+        break;        
+    case 5:
+        std::cout<<"Inserta el dni del paciente que quieres modificar:";
+        std::getline(std::cin, dni);
+        paciente = interfaz.buscarPaciente(dni);
+        if (paciente.getDni() != "NULL"){
+            interfaz.updatePaciente(paciente);
+        }
+        break;
+    case 6:
+        std::cout<<"Inserta el dni del paciente que modificar las citas:";
+        std::getline(std::cin, dni);
+        paciente = interfaz.buscarPaciente(dni);
+        if (paciente.getDni() != "NULL"){
+            interfaz.citaMenu(paciente);
+        }
+        break;
+    default:
+        break;
+    }
+    
+    interfaz.exportarPacientes();
     return 0;
 }

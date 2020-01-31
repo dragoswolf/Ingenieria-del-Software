@@ -166,8 +166,8 @@ Cita & Interfaz::createCita() {
     std::getline(std::cin,motivo);
     std::cout << std::endl;
 
-    Cita newCita(fecha, motivo);
-    return newCita;
+    /*Cita newCita(fecha, motivo);
+    return newCita;*/
 }
 
 Cita & Interfaz::readCita(Paciente & paciente) {
@@ -188,25 +188,19 @@ Cita & Interfaz::readCita(Paciente & paciente) {
     std::cout << "El DNI/Fecha proporcionados no se encuentran en la base de datos" << std::endl;
 }
 
-Cita & Interfaz::updateCita() {
+Cita & Interfaz::updateCita(Paciente & paciente) {
     //
     std::cout << "Inserte el nuevo valor" << std::endl << "Si no desea modificarlo pulse intro" << std::endl;
-    std::string nuevoValor;
-
-    std::string dni;
-    std::cout << "Inserte el DNI del paciente del cual desea modificar" << std::endl;
-    std::cout << "DNI: ";
-    std::getline(std::cin,dni);
-
-    std::string fecha;
+    std::string nuevoValor, fecha;
     std::cout << "Inserte la fecha de la cita" << std::endl;
     std::cout << "Fecha: ";
     std::getline(std::cin,fecha);
 
     std::list<Cita>::iterator it;
-    for(it = citasList_.begin(); it != citasList_.end(); it++) {
+    std::list<Cita> citas = paciente.getCitas();
+    for(it = citas.begin(); it != citas.end(); it++) {
         if (fecha == it->getFecha()) {
-
+            paciente.deleteCita(*it);
             std::cout << "Fecha: " << std::endl;
             std::getline(std::cin,nuevoValor);
             if (nuevoValor != "\n") {
@@ -217,7 +211,42 @@ Cita & Interfaz::updateCita() {
             if (nuevoValor != "\n") {
                 it->setMotivo(nuevoValor);
             }
+            paciente.addCita(*it);
+            return *it;
+        }
+    }
 
+    std::cout << "El DNI/Fecha proporcionados no se encuentran en la base de datos" << std::endl;
+
+}
+Tratamiento & Interfaz::updateTratamiento(Paciente & paciente) {
+    //
+    std::cout << "Inserte el nuevo valor" << std::endl << "Si no desea modificarlo pulse intro" << std::endl;
+    std::string nuevoValor, fecha;
+    std::cout << "Inserte la fecha de inicio del tratamiento" << std::endl;
+    std::cout << "Fecha: ";
+    std::getline(std::cin,fecha);
+
+    std::list<Tratamiento>::iterator it;
+    std::list<Tratamiento> tratamientos = paciente.getTratamientos();
+    for(it = tratamientos.begin(); it != tratamientos.end(); it++) {
+        if (fecha == it->getFechaInicio()) {
+            paciente.deleteTratamiento(*it);
+            std::cout << "Fecha Inicio: " << std::endl;
+            std::getline(std::cin,nuevoValor);
+            if (nuevoValor != "\n") {
+                it->setFechaInicio(nuevoValor);
+            }
+             std::getline(std::cin,nuevoValor);
+            if (nuevoValor != "\n") {
+                it->setFechaFin(nuevoValor);
+            }
+            std::cout << "Medicación: " << std::endl;
+            std::getline(std::cin,nuevoValor);
+            if (nuevoValor != "\n") {
+                it->setMedicacion(nuevoValor);
+            }
+            paciente.deleteTratamiento(*it);
             return *it;
         }
     }
@@ -226,23 +255,18 @@ Cita & Interfaz::updateCita() {
 
 }
 
-bool Interfaz::eliminarCita() {
-    std::string dni;
-    std::cout << "Inserte el DNI del paciente del cual desea borrar la cita" << std::endl;
-    std::cout << "DNI: ";
-    std::getline(std::cin,dni);
-
+bool Interfaz::eliminarCita(Paciente & paciente) {
     std::string fecha;
     std::cout << "Inserte la fecha de la cita que desee borrar" << std::endl;
     std::cout << "Fecha (dd/mm/aaaa): ";
     std::getline(std::cin,fecha);
 
     std::list<Cita>::iterator it;
-    for(it = citasList_.begin(); it != citasList_.end(); it++) {
+    std::list<Cita> citas = paciente.getCitas();
+    for(it = citas.begin(); it != citas.end(); it++) {
         if ( fecha == it->getFecha())
         {
-            it = citasList_.erase(it);
-            // it = it.erase(it);
+            paciente.deleteCita(*it);
             return true;
         }
     }
@@ -250,11 +274,40 @@ bool Interfaz::eliminarCita() {
     return false;
 }
 
-void Interfaz::mostrarCitas() {
+bool Interfaz::eliminarTratamiento(Paciente & paciente) {
+    std::string fecha;
+    std::cout << "Inserte la fecha del tratamiento que desee borrar" << std::endl;
+    std::cout << "Fecha (dd/mm/aaaa): ";
+    std::getline(std::cin,fecha);
+
+    std::list<Tratamiento>::iterator it;
+    std::list<Tratamiento> tratamientos = paciente.getTratamientos();
+    for(it = tratamientos.begin(); it != tratamientos.end(); it++) {
+        if ( fecha == it->getFechaInicio())
+        {
+            paciente.deleteTratamiento(*it);
+            return true;
+        }
+    }
+    std::cout << "No se han encontrado citas correspondientes a ese DNI/Fecha" << std::endl;
+    return false;
+}
+
+void Interfaz::mostrarCitas(Paciente & paciente) {
+    std::list<Cita> citas = paciente.getCitas();
     std::list<Cita>::iterator it;
-    for(it = citasList_.begin(); it != citasList_.end(); it++) {
+    for(it = citas.begin(); it != citas.end(); it++) {
         std::cout << it->getFecha() << std::endl;
         std::cout << it->getMotivo() << std::endl << std::endl;
+    }
+}
+void Interfaz::mostrarTratamientos(Paciente & paciente) {
+    std::list<Tratamiento> tratamientos = paciente.getTratamientos();
+    std::list<Tratamiento>::iterator it;
+    for(it = tratamientos.begin(); it != tratamientos.end(); it++) {
+        std::cout << it->getFechaInicio() << std::endl;
+        std::cout << it->getFechaFin() << std::endl;
+        std::cout << it->getMedicacion() << std::endl << std::endl;
     }
 }
 
@@ -290,4 +343,70 @@ void Interfaz::readTratamiento(Tratamiento & tratamiento) {
     std::cout << "Medicación: " << tratamiento.getMedicacion() << std::endl;
     std::cout << "Fecha de inicio (dd/mm/aaaa): " << tratamiento.getFechaInicio() << std::endl;
     std::cout << "Fecha de finalización (dd/mm/aaaa): " << tratamiento.getFechaFin() << std::endl;
+}
+
+void Interfaz::citaMenu(Paciente & paciente){
+    int menu = 0;
+    Cita newCita("NULL","NULL");
+    std::list<Cita> pacienteCitas;
+    std::cout<<"1. Crear cita al paciente"<<std::endl;
+    std::cout<<"2. Listar citas del paciente"<<std::endl;
+    std::cout<<"3. Eliminar cita del paciente"<<std::endl;
+    std::cout<<"4. Actualizar cita del paciente"<<std::endl;
+    std::cout<<":>";
+    std::cin>>menu;
+    std::cin.get();
+    switch (menu){
+    case 1:
+        newCita = createCita();
+        paciente.addCita(newCita);
+        break;
+    case 2:
+        mostrarCitas(paciente);
+        break;
+    case 3:
+        if (eliminarCita(paciente)){
+            std::cout<<"Cita eliminada correctamente"<<std::endl;
+        }
+        std::cout<<"Error al eliminar la cita"<<std::endl;
+        break;
+    case 4:
+        updateCita(paciente);
+        break;
+    default:
+        break;
+    }
+}
+
+void Interfaz::tratamientoMenu(Paciente & paciente){
+    int menu = 0;
+    Tratamiento newTratamiento("NULL","NULL", "NULL");
+    std::list<Cita> pacienteCitas;
+    std::cout<<"1. Crear cita al paciente"<<std::endl;
+    std::cout<<"2. Listar citas del paciente"<<std::endl;
+    std::cout<<"3. Eliminar cita del paciente"<<std::endl;
+    std::cout<<"4. Actualizar cita del paciente"<<std::endl;
+    std::cout<<":>";
+    std::cin>>menu;
+    std::cin.get();
+    switch (menu){
+    case 1:
+        newTratamiento = createTratamiento();
+        paciente.addTratamiento(newTratamiento);
+        break;
+    case 2:
+        mostrarTratamientos(paciente);
+        break;
+    case 3:
+        if (eliminarTratamiento(paciente)){
+            std::cout<<"Tratamiento eliminado correctamente"<<std::endl;
+        }
+        std::cout<<"Error al eliminar el tratamiento"<<std::endl;
+        break;
+    case 4:
+        updateTratamiento(paciente);
+        break;
+    default:
+        break;
+    }
 }

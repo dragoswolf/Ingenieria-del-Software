@@ -15,6 +15,12 @@ public:
     inline std::string getFechaInicio() const {return fechaInicio_;};
     inline std::string getFechaFin() const {return fechaFin_;};
     inline std::string getMedicacion() const {return medicacion_;};
+    bool operator ==(const Tratamiento & tratamiento){
+        if (tratamiento.getFechaInicio() == this -> getFechaInicio()){
+            return true;
+        }
+        return false;
+    }
 
     inline void setMedicacion(const std::string & medicacion) {medicacion_ = medicacion;};
     bool setFechaInicio(const std::string & fechaInicio);

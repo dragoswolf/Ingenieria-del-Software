@@ -21,15 +21,19 @@ public:
 
     Cita & createCita();
     Cita & readCita(Paciente & paciente);
-    Cita & updateCita();
-    bool eliminarCita();
-    void mostrarCitas();
+    Cita & updateCita(Paciente & paciente);
+    bool eliminarCita(Paciente & paciente);
+    void mostrarCitas(Paciente & paciente);
     void exportarPacientes();
 
     Tratamiento createTratamiento();
     void readTratamiento(Tratamiento & tratamiento);
-
+    void mostrarTratamientos(Paciente & paciente);
     Paciente  buscarPaciente(std::string pacienteDni);
+    void citaMenu(Paciente & paciente);
+    void tratamientoMenu(Paciente & paciente);
+    bool eliminarTratamiento(Paciente & paciente);
+    Tratamiento & updateTratamiento(Paciente & paciente);
 
 };
 
