@@ -49,7 +49,6 @@ public:
   std::list<Registro> getHistorial(){return historial_;}
   void setEstado(const int estado);
   void setValues(std::vector<std::string>  databaseRegister);
-
 };
 
 #endif

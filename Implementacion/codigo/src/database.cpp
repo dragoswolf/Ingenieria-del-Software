@@ -14,6 +14,20 @@ Database::Database(const std::string & folder){
     }
     closedir(patients_directory);
 }
+
+void Database::reloadFiles(){
+    patientFiles_.clear();
+    DIR* patients_directory = opendir(folder_.c_str());
+    struct dirent * dp;
+    while ((dp = readdir(patients_directory)) != NULL) {
+        if (*dp->d_name != '.'){
+            std::string filename(dp->d_name);
+            std::string finalPath(folder_ + "/" + filename);
+            patientFiles_.push_back(finalPath);
+        }
+    }
+    closedir(patients_directory);
+}
 void Database::processLine(std::vector<std::string>  originalInformation, Paciente & databasePaciente){
     if (originalInformation[0] == "c"){
         Cita newCita(originalInformation);
@@ -81,4 +95,15 @@ void Database::exportInformationToFile(Paciente & paciente){
         pacienteFile<<historial;
     }
     pacienteFile.close();
+}
+
+bool Database::removeFile(const std::string & pacienteDni){
+    std::string finalPath = folder_ +"/" +  pacienteDni + ".txt";
+ 
+    if (remove(finalPath.c_str()) != 0){
+        return false;
+    }
+    else{
+        return true;
+    }
 }

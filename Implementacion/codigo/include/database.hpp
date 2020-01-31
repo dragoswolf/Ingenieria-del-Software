@@ -19,6 +19,7 @@ class Database{
     public:
         Database(const std::string & folder);    
         inline std::string getFolder()const {return folder_;};
+        inline void setFolder(const std::string folder){folder_ = folder;}; 
         Paciente getPaciente(std::string dni);
         bool insertPaciente(Paciente newPaciente);
         bool deletePaciente(Paciente oldPaciente);
@@ -28,6 +29,8 @@ class Database{
         void processLine(std::vector<std::string> originalInformation, Paciente & databasePaciente);
         std::list<Paciente> getPacientes(){return pacientes_;}
         void exportInformationToFile(Paciente & paciente);
+        bool removeFile(const std::string & pacienteDni);
+        void reloadFiles();
 };
 
 

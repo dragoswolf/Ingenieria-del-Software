@@ -1,6 +1,8 @@
 #include "interfaz.hpp"
 Interfaz::Interfaz(const std::string & folder){
-    db_ = Database(folder);
+    db_.setFolder(folder);
+    std::cout<<"UPDATED FOLDER"<<db_.getFolder()<<std::endl;
+    db_.reloadFiles();
     db_.loadDatabase();
     pacienteList_ = db_.getPacientes();
 }
@@ -46,6 +48,17 @@ Paciente Interfaz::createPaciente() {
 
 }
 
+Paciente Interfaz::buscarPaciente(std::string pacienteDni){
+    std::list<Paciente>::iterator it = pacienteList_.begin();
+    for(; it != pacienteList_.end(); it++){
+        if (it->getDni() == pacienteDni){
+            return *it;
+        }
+    }
+    Paciente emptyPaciente = Paciente();
+    return emptyPaciente;
+}
+
 void Interfaz::readPaciente(Paciente & paciente) {
     std::cout << "DNI: " << paciente.getDni() << std::endl;
     std::cout << "NUSHA: " << paciente.getNusha() << std::endl;
@@ -56,18 +69,13 @@ void Interfaz::readPaciente(Paciente & paciente) {
     std::cout << "Telefono: " << paciente.getTelefono() << std::endl;     
 }
 
-Paciente & Interfaz::updatePaciente() {
+Paciente & Interfaz::updatePaciente(Paciente & paciente) {
     //
     std::cout << "Inserte el nuevo valor" << std::endl << "Si no desea modificarlo pulse intro" << std::endl;
     std::string nuevoValor;
-
-    std::string dni;
-    std::cout << "Inserte el DNI del paciente que desee actualizar" << std::endl;
-    std::cout << "DNI: ";
-    std::getline(std::cin,dni);
     std::list<Paciente>::iterator it;
     for(it = pacienteList_.begin(); it != pacienteList_.end(); it++) {
-        if (dni == it->getDni()) {
+        if (paciente.getDni() == it->getDni()) {
 
             std::cout << "DNI: " << std::endl;
             std::getline(std::cin,nuevoValor);
@@ -111,20 +119,6 @@ Paciente & Interfaz::updatePaciente() {
                 it->setTelefono(nuevoValor);
             }
 
-            std::cout << "Activo (s/n): " << std::endl;
-            std::getline(std::cin,nuevoValor);
-            if (nuevoValor != "\n") {
-                if (nuevoValor == "s") {
-                    it->setEstado(true);
-                }
-                if (nuevoValor == "n") {
-                    it->setEstado(false);
-                }
-                else {
-                    std::cout << "El valor insertado no es válido" << std::endl << std::endl;
-                }
-            }
-
             return *it;
         }
     }
@@ -133,19 +127,17 @@ Paciente & Interfaz::updatePaciente() {
 
 }
 
-bool Interfaz::deletePaciente() {
-    std::string dni;
-    std::cout << "Inserte el DNI del paciente que desee borrar" << std::endl;
-    std::cout << "DNI: ";
-    std::getline(std::cin,dni);
+bool Interfaz::deletePaciente(Paciente & paciente) {
     std::list<Paciente>::iterator it;
     for(it = pacienteList_.begin(); it != pacienteList_.end(); it++) {
-        if (dni == it->getDni()) {
+        if (paciente.getDni() == it->getDni()) {
+            std::cout<<"DB_FOLDER:"<<db_.getFolder();
+            db_.removeFile(it->getDni());
             it = pacienteList_.erase(it);
             return true;
         }
     }
-    std::cout << "El DNI proporcionado no se encuentra en la base de datos" << std::endl;
+    return false;
 }
 
 void Interfaz::listarPacientes() {
@@ -163,10 +155,6 @@ void Interfaz::listarPacientes() {
 }
 
 Cita & Interfaz::createCita() {
-    std::string dni;
-    std::cout << "DNI: ";
-    std::getline(std::cin,dni);
-    std::cout << std::endl;
 
     std::string fecha;
     std::cout << "Fecha: ";
@@ -182,11 +170,7 @@ Cita & Interfaz::createCita() {
     return newCita;
 }
 
-Cita & Interfaz::readCita() {
-    std::string dni;
-    std::cout << "Inserte el DNI del paciente del cual desea leer la cita" << std::endl;
-    std::cout << "DNI: ";
-    std::getline(std::cin,dni);
+Cita & Interfaz::readCita(Paciente & paciente) {
 
     std::string fecha;
     std::cout << "Inserte la fecha de la cita" << std::endl;
@@ -298,8 +282,7 @@ Tratamiento Interfaz::createTratamiento() {
     std::cout << std::endl;
 
     Tratamiento newTratamiento = Tratamiento(medicacion, fechaInicio, fechaFin);
-    tratamientos_.push_back(tratamiento);
-    return tratamiento;
+    return newTratamiento;
 
 }
 
