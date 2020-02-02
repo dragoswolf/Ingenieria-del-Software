@@ -37,10 +37,7 @@ void Database::processLine(std::vector<std::string>  originalInformation, Pacien
         Tratamiento newTratamiento(originalInformation);
         databasePaciente.addTratamiento(newTratamiento);
     }
-    if (originalInformation[0] == "r"){
-        Registro newRegistro(originalInformation);
-        databasePaciente.addRegistro(newRegistro);
-    }    
+        
 }
 void Database::loadDatabase(){
     std::vector<std::string>::iterator it = patientFiles_.begin();
@@ -79,20 +76,26 @@ void Database::exportInformationToFile(Paciente & paciente){
     std::string tratamiento;
     std::list<Cita> pacienteCitas = paciente.getCitas();
     std::list<Registro> pacienteHistorial = paciente.getHistorial();
+    std::list<Tratamiento> pacienteTratamientos = paciente.getTratamientos();
     personalInformation = "p;" + paciente.getDni() + ";" + paciente.getNusha() + ";" + paciente.getNombre() + ";" + paciente.getApellidos()+ ";" +paciente.getFechaDeNacimiento() + ";"+ paciente.getEmail() + ";"+paciente.getTelefono() + "\n";
     std::list<Cita>::iterator citaIterator = pacienteCitas.begin();
     for (; citaIterator != pacienteCitas.end(); citaIterator++){
-        citas = "c;"+citaIterator->getFecha() + ";"+ citaIterator->getMotivo()+"\n";
+        citas += "c;"+citaIterator->getFecha() + ";"+ citaIterator->getMotivo()+"\n";
     }
     std::list<Registro>::iterator registroIterator = pacienteHistorial.begin();
     for (; registroIterator != pacienteHistorial.end(); registroIterator++){
         historial = "r;"+registroIterator->getMotivo()+"\n";
+    }
+    std::list<Tratamiento>::iterator tit = pacienteTratamientos.begin();
+    for (; tit != pacienteTratamientos.end(); tit++){
+        tratamiento += "t;"+tit->getMedicacion()+ ";" + tit-> getFechaInicio() +";"+ tit->getFechaFin() + "\n";
     }
     pacienteFile.open("pacientes/"+paciente.getDni()+".txt");
     if (pacienteFile.is_open()){
         pacienteFile<<personalInformation;
         pacienteFile<<tratamiento;
         pacienteFile<<historial;
+        pacienteFile<<citas;
     }
     pacienteFile.close();
 }

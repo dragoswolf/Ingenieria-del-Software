@@ -31,6 +31,8 @@ class Database{
         void exportInformationToFile(Paciente & paciente);
         bool removeFile(const std::string & pacienteDni);
         void reloadFiles();
+        inline void addPaciente(Paciente & paciente){pacientes_.push_back(paciente);};
+
 };
 
 

@@ -15,25 +15,24 @@ public:
     Interfaz(const std::string & folder);
     Paciente createPaciente();
     void readPaciente(Paciente & paciente);
-    Paciente & updatePaciente(Paciente & paciente);
+    bool updatePaciente(Paciente & paciente);
     bool deletePaciente(Paciente & paciente);
     void listarPacientes();
 
-    Cita & createCita();
+    Cita  createCita(const std::string  & dni);
     Cita & readCita(Paciente & paciente);
     Cita & updateCita(Paciente & paciente);
     bool eliminarCita(Paciente & paciente);
     void mostrarCitas(Paciente & paciente);
     void exportarPacientes();
 
-    Tratamiento createTratamiento();
-    void readTratamiento(Tratamiento & tratamiento);
-    void mostrarTratamientos(Paciente & paciente);
-    Paciente  buscarPaciente(std::string pacienteDni);
-    void citaMenu(Paciente & paciente);
-    void tratamientoMenu(Paciente & paciente);
-    bool eliminarTratamiento(Paciente & paciente);
+    Tratamiento createTratamiento(const std::string  & dni);
+    Tratamiento & readTratamiento(Paciente & paciente);
     Tratamiento & updateTratamiento(Paciente & paciente);
+    bool eliminarTratamiento(Paciente & paciente);
+    void mostrarTratamientos(Paciente & paciente);
+   
+    Paciente  buscarPaciente(std::string pacienteDni);
 
 };
 

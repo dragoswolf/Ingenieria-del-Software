@@ -41,6 +41,8 @@ public:
   inline void setFechaDeNacimiento(const std::string & fechaDeNacimiento){fechaDeNacimiento_ = fechaDeNacimiento;};
   inline void setEmail(const std::string & email){email_ = email;};
   inline void setTelefono(const std::string & telefono){ telefono_ = telefono;};
+  inline void setCitas (std::list<Cita> newCitas){ citas_ = newCitas;};
+  inline void setTratamientos (std::list<Tratamiento> newTratamientos){ tratamientos_ = newTratamientos;};
   inline void addCita(Cita newCita){citas_.push_back(newCita);};
   inline void addTratamiento(Tratamiento newTratamiento){tratamientos_.push_back(newTratamiento);};
   inline void addRegistro(Registro newRegistro){historial_.push_back(newRegistro);};
@@ -51,6 +53,12 @@ public:
   std::list<Registro> getHistorial(){return historial_;}
   void setEstado(const int estado);
   void setValues(std::vector<std::string>  databaseRegister);
+  bool operator ==(const Paciente & paciente ){
+    if (paciente.dni_ == this->getDni()){
+      return true;
+    }
+    return false;
+  };
 };
 
 #endif
