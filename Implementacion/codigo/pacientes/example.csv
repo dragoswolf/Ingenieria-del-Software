@@ -1,0 +1,4 @@
+nombre;apellidos;fecha de nacimiento;correo;telefono;NUSHA;dni;Activo
+c;fecha,motivo
+t;diagnostico,fechaInicio,fechaFinal,Medicacion
+h;
