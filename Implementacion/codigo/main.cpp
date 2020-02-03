@@ -22,7 +22,7 @@ int main() {
         std::cout<<"4. Eliminar un paciente"<<std::endl;
         std::cout<<"5. Modificar datos de un paciente"<<std::endl;
         std::cout<<"6. Operar con las citas de un paciente"<<std::endl;
-        std::cout<<"6. Operar con los tratamientos de un paciente"<<std::endl;
+        std::cout<<"7. Operar con los tratamientos de un paciente"<<std::endl;
         std::cout<<"0. Salir"<<std::endl;
         std::cout<<":>";
         std::cin>>option;
@@ -93,7 +93,7 @@ int main() {
             }
             break;
         case 7:
-            std::cout<<"Inserta el dni del paciente que modificar las citas:";
+            std::cout<<"Inserta el dni del paciente que modificar o añadir tratamiento:";
             std::getline(std::cin, dni);
             paciente = interfaz.buscarPaciente(dni);
             if (paciente.getDni() == "NULL"){
