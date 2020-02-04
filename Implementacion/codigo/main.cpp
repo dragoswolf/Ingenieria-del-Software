@@ -13,7 +13,7 @@ int main() {
     while (option != 0){
         char currentPath[PATH_MAX];
         getcwd(currentPath, PATH_MAX);
-        std::string path(path);
+        std::string path(currentPath);
         path += "/pacientes";
         Interfaz interfaz(currentPath);
         std::cout<<"1. Crear un nuevo paciente"<<std::endl;
