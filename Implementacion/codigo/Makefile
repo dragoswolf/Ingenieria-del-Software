@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-g -Wall  -I include/
+CFLAGS=-g -std=c++11  -I include/
 OBJ = main.o
 SRC=src
 HEADERS=include
