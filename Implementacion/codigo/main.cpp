@@ -15,7 +15,7 @@ int main() {
         getcwd(currentPath, PATH_MAX);
         std::string path(path);
         path += "/pacientes";
-        Interfaz interfaz(path);
+        Interfaz interfaz(currentPath);
         std::cout<<"1. Crear un nuevo paciente"<<std::endl;
         std::cout<<"2. Mostrar un paciente"<<std::endl;
         std::cout<<"3. Listar todos los pacientes"<<std::endl;
